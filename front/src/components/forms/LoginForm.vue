@@ -32,8 +32,8 @@ const err: Ref<string> = ref('')
 
 const formHandler = async () => {
   try {
-    const res = await fetch(import.meta.env.BASE_URL, {
-      method: 'post',
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/auth/login`, {
+      method: 'POST',
       headers: {
         'Content-type': 'application/json'
       },

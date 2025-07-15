@@ -1,13 +1,13 @@
 <template>
     <SideBar/>
     <div class="form-container p-2">
-        <h4>Cadastrar Produto</h4>
-        <ProductForm/>
+        <h4>Cadastrar Fornecedor</h4>
+        <SupplierForm/>
     </div>
 </template>
 
 <script setup lang="ts">
-import ProductForm from '../components/forms/ProductForm.vue';
+import SupplierForm from '../components/forms/SupplierForm.vue';
 import SideBar from '../components/SideBar.vue';
 
 
