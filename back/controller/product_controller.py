@@ -22,3 +22,14 @@ def create_product():
         print(e)
         return jsonify({'msg': 'Falha ao cadastrar produto'}), 500
 
+@product_bp.route('/findall', methods=['POST'])
+@jwt_required()
+def find_all_products():
+    try:
+        products = Product.select()
+        list = [ p.__data__ for p in products ]
+
+        return jsonify({'msg': 'Produtos carregados com sucesso', 'list': list})
+    except Exception as e:
+        return jsonify({'msg': 'Falha ao carregar produtos'}), 500
+        print(e)

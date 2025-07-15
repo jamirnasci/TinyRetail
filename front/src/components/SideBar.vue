@@ -5,7 +5,7 @@
             <div class="d-flex flex-column">
                 <a class="side-bar-link" href="/products">Produtos</a>
                 <a class="side-bar-link" href="/sales">Vendas</a>
-                <a class="side-bar-link" href="">Nova Venda</a>
+                <a class="side-bar-link" href="/point-of-sale">Nova Venda</a>
                 <a class="side-bar-link" href="/supplier">Fornecedores</a>
             </div>
         </div>

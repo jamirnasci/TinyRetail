@@ -5,6 +5,7 @@ import SalesPage from '../pages/SalesPage.vue'
 import CreateUserPage from '../pages/CreateUserPage.vue'
 import ProductsPage from '../pages/ProductsPage.vue'
 import SupplierPage from '../pages/SupplierPage.vue'
+import PointSalePage from '../pages/PointSalePage.vue'
 
 const routes = createRouter({
     history: createWebHistory(),
@@ -23,6 +24,11 @@ const routes = createRouter({
             name: 'sales',
             path: '/sales',
             component: SalesPage
+        },
+        {
+            name:'pointOfSale',
+            path: '/point-of-sale',
+            component: PointSalePage
         },
         {
             name: 'user',

@@ -1,9 +1,11 @@
 <template>
+    <SideBar/>
     <h1>Sales</h1>
 </template>
 
 <script setup lang="ts">
 import { onMounted } from 'vue';
+import SideBar from '../components/SideBar.vue';
 
 interface Sale{
     total: number
@@ -26,7 +28,6 @@ onMounted(async () => {
         if(!res.ok){
             location.href = '/login'
         }
-        alert(obj.msg)
     } catch (error) {
         console.log(`Sales history error: ${error}`)
     }
