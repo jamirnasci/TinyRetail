@@ -5,11 +5,6 @@ from models.sale_list import SaleList
 
 sales_bp = Blueprint('sales', __name__)
 
-@sales_bp.route('/history', methods=['POST'])
-@jwt_required()
-def history():
-    return jsonify({'msg': 'Sales'}), 200
-
 @sales_bp.route('/create', methods=['POST'])
 def create_sale():
     data = request.get_json()
@@ -29,3 +24,15 @@ def create_sale():
     except Exception as e:
         print(e)
         return jsonify({'msg': 'Falha ao cadastrar venda'}), 500
+
+@sales_bp.route('/history', methods=['POST'])
+@jwt_required()
+def history():
+    try:
+        sales = Sale.select()
+        sales_list = [s.__data__ for s in sales]
+        print('ok')
+        return jsonify({'msg': 'Vendas carregadas com sucesso', 'history': sales_list})
+    except Exception as e:
+        return jsonify({'msg': 'Falha ao carregar vendas'}), 500
+        print(e)
