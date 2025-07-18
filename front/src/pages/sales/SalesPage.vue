@@ -18,7 +18,7 @@
                     <td>{{ s.total_itens }}</td>
                     <td>R$ {{ s.total }}</td>
                     <td>{{ new Date(s.created_at).toLocaleDateString('pt-br') }}</td>
-                    <td><button class="btn btn-secondary">Abrir</button></td>
+                    <td><button @click="navigateToDetails(s.id)" class="btn btn-secondary">Abrir</button></td>
                 </tr>
             </tbody>
         </table>
@@ -27,10 +27,12 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
-import SideBar from '../components/SideBar.vue';
+import SideBar from '../../components/SideBar.vue';
 import type { Ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 interface Sale {
+    id: number
     total: number
     total_itens: number
     created_at: string
@@ -42,6 +44,7 @@ interface SalesHistoryResponse {
 }
 
 const sales: Ref<Sale[]> = ref([])
+const router = useRouter()
 
 onMounted(async () => {
     try {
@@ -60,4 +63,14 @@ onMounted(async () => {
         console.log(`Sales history error: ${error}`)
     }
 })
+
+const navigateToDetails = (id: number)=>{
+    
+    router.push({
+        name: 'saleDetails',
+        params:{
+            id: id
+        }
+    })
+}
 </script>

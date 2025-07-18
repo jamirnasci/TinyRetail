@@ -6,5 +6,5 @@ from models.sale import Sale
 class SaleList(BaseModel):
     id = AutoField()
     total_item = IntegerField(null = False)
-    product = ForeignKeyField(Product)
-    sale = ForeignKeyField(Sale, on_delete='CASCADE')
+    product = ForeignKeyField(Product, backref='products')
+    sale = ForeignKeyField(Sale, on_delete='CASCADE', backref='sale_list')

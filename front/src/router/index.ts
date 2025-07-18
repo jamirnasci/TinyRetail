@@ -1,11 +1,12 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import Index from '../pages/index.vue'
 import LoginPage from '../pages/LoginPage.vue'
-import SalesPage from '../pages/SalesPage.vue'
+import SalesPage from '../pages/sales/SalesPage.vue'
 import CreateUserPage from '../pages/CreateUserPage.vue'
-import ProductsPage from '../pages/ProductsPage.vue'
-import SupplierPage from '../pages/SupplierPage.vue'
-import PointSalePage from '../pages/PointSalePage.vue'
+import ProductsPage from '../pages/products/ProductsPage.vue'
+import SupplierPage from '../pages/supplier/SupplierPage.vue'
+import PointSalePage from '../pages/sales/PointSalePage.vue'
+import SaleDetailPage from '../pages/sales/SaleDetailPage.vue'
 
 const routes = createRouter({
     history: createWebHistory(),
@@ -24,6 +25,11 @@ const routes = createRouter({
             name: 'sales',
             path: '/sales',
             component: SalesPage
+        },
+        {
+            name: 'saleDetails',
+            path: '/sales/details/:id',
+            component: SaleDetailPage
         },
         {
             name:'pointOfSale',

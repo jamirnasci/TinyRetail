@@ -7,8 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import ProductForm from '../components/forms/ProductForm.vue';
-import SideBar from '../components/SideBar.vue';
-
+import ProductForm from '../../components/forms/ProductForm.vue';
+import SideBar from '../..//components/SideBar.vue';
 
 </script>

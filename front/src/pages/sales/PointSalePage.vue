@@ -66,7 +66,7 @@
 
 <script setup lang="ts">
 import { onMounted, ref, type Ref } from 'vue';
-import SideBar from '../components/SideBar.vue';
+import SideBar from '../../components/SideBar.vue';
 
 interface Product {
     id: number
@@ -186,5 +186,6 @@ const submitSale = async ()=>{
 
     const obj = await res.json()
     alert(obj.msg)
+    clearList()
 }
 </script>

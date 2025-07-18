@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, url_for, redirect, request
 from flask_jwt_extended import jwt_required
 from models.sale import Sale
 from models.sale_list import SaleList
-
+from models.product import Product
 sales_bp = Blueprint('sales', __name__)
 
 @sales_bp.route('/create', methods=['POST'])
@@ -34,5 +34,16 @@ def history():
         print('ok')
         return jsonify({'msg': 'Vendas carregadas com sucesso', 'history': sales_list})
     except Exception as e:
-        return jsonify({'msg': 'Falha ao carregar vendas'}), 500
         print(e)
+        return jsonify({'msg': 'Falha ao carregar vendas'}), 500
+
+@sales_bp.route('/details/<int:id>', methods=['GET'])
+@jwt_required()
+def sale_details(id):
+    details = Sale.select().where(Sale.id == id)
+    details_dict = [s.__data__ for s in details]
+
+    return jsonify({
+        'msg': 'lista',
+        'list': details_dict
+    }), 200

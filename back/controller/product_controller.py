@@ -31,5 +31,5 @@ def find_all_products():
 
         return jsonify({'msg': 'Produtos carregados com sucesso', 'list': list})
     except Exception as e:
-        return jsonify({'msg': 'Falha ao carregar produtos'}), 500
         print(e)
+        return jsonify({'msg': 'Falha ao carregar produtos'}), 500
